@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/auxiliares.css">
+    <title>Clientes</title>
+    <!--
+    <script src="js/jquery-3.6.0.min.js"></script>
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/listarclientes.js"></script>
+    <script src="js/registrarclientes.js"></script>
+    <script src="js/editarclientes.js"></script>
+    <script src="js/borrarclientes.js"></script>
+    <script src="js/funcionescliente.js"></script>
+</head>
+
+<body>
+    <a href="index.html"><img src="img/previous.png" alt="Regresar" id="back"></a>
+    <div class="container" id="principal">
+        <h2>Registro de Clientes</h2>
+
+        <!-- en el elemento identificado con el id 'mensajes' se mostraran los mensajes
+             o resultado de ejecutar la peticion
+        -->
+        <div id="mensajes"></div>
+        <br>
+        
+        
+        <button id="nuevoRegistro" class="btn btn-primary"  onclick="activaNuevo();">Registrar Cliente</button>
+        <!--aqui se actualizara el listado -->
+        <div id="listado">
+             
+        </div>
+
+        <!-- Seccion para nuevos registros-->
+        <div id="nuevo">
+            <h4>Registrar Cliente</h4>
+            <div class="mb-3" id="formulario">
+                <div class="mb-3">
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="name" placeholder="Nombre" onkeydown="upperCaseF(this)">
+                <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="email" placeholder="Correo Electrónico">
+                <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="password" placeholder="Contraseña">
+                <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="age" placeholder="Edad">
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-primary btn-sm" onclick="registrar();">Guardar</button>
+                <button class="btn btn-dark btn-sm" onclick="estadoInicial();">Cancelar</button>
+                </div>
+            </div>
+        </div>
+
+
+       
+        
+    </div>
+     <!-- Seccion para editar registros-->
+     <div class="formulario" id="editar" >
+        <h4>Editar Cliente</h4>
+        <input type="number" id="idEdit"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="id">
+        <input type="text" id="nameEdit"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="name">
+        <input type="text" id="emailEdit"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="email">
+        <input type="password" id="passwordEdit"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="password">
+        <input type="number" id="ageEdit"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="age">
+        <button class="btn btn-primary btn-sm" onclick="actualizar();">Guardar</button>
+        <button class="btn btn-dark btn-sm" onclick="estadoInicial();">Cancelar</button>
+    </div>
+</body>
+
+</html>

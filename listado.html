@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/auxiliares.css">
+    <title>Cabañas</title>
+    <!--
+    <script src="js/jquery-3.6.0.min.js"></script>
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/listar.js"></script>
+    <script src="js/registrar.js"></script>
+    <script src="js/borrar.js"></script>
+    <script src="js/editar.js"></script>
+    <script src="js/funciones.js"></script>
+    
+</head>
+
+<body>
+    <a href="index.html"><img src="img/previous.png" alt="Regresar" id="back"></a>
+    <div class="container" id="principal">
+        <h2>Nuestras Cabañas</h2>
+
+        <!-- en el elemento identificado con el id 'mensajes' se mostraran los mensajes
+             o resultado de ejecutar la peticion
+        -->
+        <div id="mensajes"></div>
+        <br>
+        
+        
+        <button id="nuevoRegistro" class="btn btn-primary" onclick="activaNuevo();">Registrar Cabaña</button>
+        <!--aqui se actualizara el listado -->
+        <div class="container" id="listado"></div>
+
+        <!-- Seccion para nuevos registros-->
+        <div id="nuevo">
+            <h4>Registrar Cabaña</h4>
+            <div class="mb-3" id="formulario">
+                <div class="mb-3">
+            
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="name" placeholder="Nombre" onkeydown="upperCaseF(this)">
+  
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="brand" placeholder="Marca" onkeydown="upperCaseF(this)">
+           
+            <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="room" placeholder="Habitaciones">
+          
+            <select id="category" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Categoria">
+                
+            </select>
+            </div>
+        
+            <textarea id="description" class="form-control"  rows="3" placeholder="Descripción" cols="50"  onkeydown="upperCaseF(this)"></textarea>
+            
+            <div class="mb-3">
+                <button onclick="registrar();" class="btn btn-primary btn-sm">Guardar</button>
+            <button onclick="estadoInicial();" class="btn btn-dark btn-sm" >Cancelar</button>
+                </div>
+            </div>
+        </div>
+
+
+        
+    </div>
+    
+    
+        <!-- Seccion para editar registros-->
+        <div id="editar" class="formulario">
+            <h4>Editar Cabaña</h4>
+            <input type="number" id="idEdit" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="name">
+            <input type="text" id="nameEdit" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="name">
+            <input type="text" id="brandEdit" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="brand">
+            <input type="number" id="roomEdit" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="room">
+            <input type="number" id="categoryEdit" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="category_id">
+            <textarea type="text" id="descriptionEdit"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="room"></textarea>
+            <button class="btn btn-primary btn-sm" onclick="actualizar();">Guardar</button>
+            <button class="btn btn-dark btn-sm"  onclick="estadoInicial();">Cancelar</button>
+        </div>
+</body>
+
+</html>

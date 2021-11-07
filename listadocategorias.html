@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/auxiliares.css">
+    
+
+    <title>Categorías</title>
+    <!--
+    <script src="js/jquery-3.6.0.min.js"></script>
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   
+    <script src="js/registrarcategoria.js"></script>
+    <script src="js/editarcategoria.js"></script>
+    <script src="js/borrarcategoria.js"></script>
+    <script src="js/funcionescategoria.js"></script>
+    <script src="js/listarcategorias.js"></script>
+</head>
+
+<body>
+    <a href="index.html"><img src="img/previous.png" alt="Regresar" id="back"></a>
+    <div class="container" id="principal">
+        
+        <h2>Registro de Categorías</h2>
+
+        <!-- en el elemento identificado con el id 'mensajes' se mostraran los mensajes
+             o resultado de ejecutar la peticion
+        -->
+        <div id="mensajes"></div>
+        <br>
+        
+        
+        <button id="nuevoRegistro"  class="btn btn-primary"  onclick="activaNuevo();">Registrar Categoría</button>
+        <!--aqui se actualizara el listado -->
+        <div id="listado" class="container"></div>
+
+        <!-- Seccion para nuevos registros-->
+        <div id="nuevo" >
+            <h4>Registrar Categoría</h4>
+            <div class="mb-3 formulario" >
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Nombre Categoría</label>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="Identifique la categoría" placeholder="Identifique la categoría">
+            </div>
+            
+            
+         <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
+           
+             <textarea id=" "  class="form-control" aria-label="With textarea" placeholder=" " rows="4"  onkeydown="upperCaseF(this)"></textarea>
+            </div>
+             <div class="mb-3">
+            <button class="btn btn-primary btn-sm" onclick="registrar();">Guardar</button>
+            <button class="btn btn-dark btn-sm"  onclick="estadoInicial();">Cancelar</button>
+             </div>
+        </div>
+
+
+        
+        
+    </div>
+    <!-- Seccion para editar registros-->
+    <div id="editar"class="formulario">
+        <h4>Editar Categoría</h4>
+        <input class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"  type="text" id="idEdit" placeholder="id">
+        <input class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"  type="text" id="nameEdit" placeholder="name">
+        <textarea class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"  type="text" id="descripcionEdit" placeholder="Description"></textarea>
+        <button class="btn btn-primary btn-sm" onclick="actualizar();">Guardar</button>
+        <button class="btn btn-dark btn-sm"  onclick="estadoInicial();">Cancelar</button>
+    </div>
+  
+</body>
+
+</html>
+

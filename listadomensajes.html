@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensajes</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/auxiliares.css">
+    <!--
+    <script src="js/jquery-3.6.0.min.js"></script>
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/listarmensajes.js"></script>
+    <script src="js/registrarmensajes.js"></script>
+    <script src="js/funcionesmensajes.js"></script>
+    <script src="js/borrarmensajes.js"></script>
+    <script src="js/editarmensajes.js"></script>
+</head>
+
+<body>
+    <a href="index.html"><img src="img/previous.png" alt="Regresar" id="back"></a>
+        <div class="container" id="principal">
+        <h2>Registro de Mensajes</h2>
+
+        <!-- en el elemento identificado con el id 'mensajes' se mostraran los mensajes
+             o resultado de ejecutar la peticion
+        -->
+        <div id="mensajes"></div>
+        <br>
+        
+        
+        <button id="nuevoRegistro" class="btn btn-primary" onclick="activaNuevo();">Registrar Mensaje</button>
+        <!--aqui se actualizara el listado -->
+        <div id="listado"></div>
+
+        <!-- Seccion para nuevos registros-->
+        <div id="nuevo">
+            <h4>Registrar Mensaje</h4>
+            
+            <div class="mb-3" id="formulario">
+                
+                    <select  id="client" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Cliente">
+                    
+                    </select>
+                 
+                    <select id="cabin" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Cabaña">
+                        
+                    </select>
+                  
+                    <textarea id="messagetext" class="form-control" aria-label="With textarea" placeholder="Escriba un mensaje" rows="4" cols="50" onkeydown="upperCaseF(this)"></textarea>
+               
+               
+                <div class="mb-3">
+                    <button onclick="registrar();" class="btn btn-primary btn-sm" >Guardar</button>
+                <button onclick="estadoInicial();" class="btn btn-dark btn-sm" >Cancelar</button>
+                </div>
+            </div>
+        </div>
+
+
+        
+        
+    </div>
+    <!-- Seccion para editar registros-->
+    <div id="editar" class="formulario">
+        <h4>Editar Mensaje</h4>
+        <input type="number" id="idEdit" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="id">
+        <br>
+        <textarea id="messagetextEdit" class="form-control" aria-label="With textarea" placeholder="Write a message" placeholder="messagetext" rows="4" cols="50"></textarea>
+        <br>
+        <button onclick="actualizar();" class="btn btn-primary btn-sm">Guardar</button>
+        <button onclick="estadoInicial();" class="btn btn-dark btn-sm">Cancelar</button>
+    </div>
+</body>
+
+</html>

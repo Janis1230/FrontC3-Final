@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/auxiliares.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <!--
+    <script src="js/jquery-3.6.0.min.js"></script>
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/borrarReservas.js"></script>
+    <script src="js/listarReservas.js"></script>
+    <script src="js/registrarReservas.js"></script>
+    <script src="js/funcionesReservas.js"></script>
+    <script src="js/editarReservas.js"></script>
+ 
+
+</head>
+
+<body>
+    <a href="index.html"><img src="img/previous.png" alt="Regresar" id="back"></a>
+    <div class="container" id="principal">
+        <h2>Registro de Reservaciones</h2>
+
+        <!-- en el elemento identificado con el id 'Reservas' se mostraran los Reservas
+             o resultado de ejecutar la peticion
+        -->
+        <div id="Reservas"></div>
+ 
+        
+        <div class="mb-3">
+        <button id="nuevoRegistro" class="btn btn-primary" onclick="activaNuevo();">Registrar Reserva</button>
+        <button id="reportes_btn" class="btn btn-primary" onclick="activarReportes();">Reportes</button>
+        </div>   
+        <!--aqui se actualizara el listado -->
+        <div id="listado"></div>
+        <div class="" id="reportes">
+            <div class="row">
+                    <div class="col-mb"> 
+                        <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"  id="startDate_rep">
+                    </div>
+                    <div class="col-mb">
+                        <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"  id="devolutionDate_rep">
+                    </div>
+                    <div class="col-mb">
+                        <button  class="btn btn-primary" id="consultar_btn" onclick="mostrarInformes();">Consultar</button>
+                    </div>
+            </div>   
+            <div class="row">
+                <div class="col-mb">
+                <button  class="btn btn-primary" id="consultar_btn" onclick="mostrarStatus();">Reporte por Status</button>
+                 </div>   
+                 <div class="col-mb">
+                    <button  class="btn btn-primary" id="consultar_btn" onclick="mostrarclientes();">Reporte por Clientes</button>
+                 </div>      
+
+            </div>
+            <div class="row">
+                <div class="table" id="mostrarReportes">
+                    
+                </div>
+
+            </div>
+        </div>
+ 
+        <!-- Seccion para nuevos registros-->
+        <div id="nuevo">
+            <h4>Registrar Reserva</h4>
+            <div class="mb-3" id="formulario">
+                <div class="mb-3">
+                    <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"  id="startDate">
+             
+                     <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"  id="devolutionDate">
+            
+                <select id="client"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Cliente">
+                    
+                </select>
+             
+                <select id="cabin"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Cabaña">
+
+                </select>
+                </div>
+             
+               <div class="mb-3">
+                <button class="btn btn-primary btn-sm" onclick="registrar();">Guardar</button>
+                <button class="btn btn-dark btn-sm" onclick="estadoInicial();">Cancelar</button>
+               </div>                
+            </div>
+        </div>
+
+
+       
+        
+    </div>
+
+    <div id="mensajes"></div>
+        <br>
+     <!-- Seccion para editar registros-->
+     <div id="editar" class="formulario">
+        <h4>Editar Reservas</h4>
+        <div class="mb-3" id="formulario">
+            <div class="mb-3">
+                
+                <input type="input" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"  id="idReservation2" placeholder="">
+                <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"  name="startDate" id="startDate_edi" placeholder="YYYY-MM-DD">
+         
+            <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"  id="devolutionDate_edi" placeholder="YYYY-MM-DD">
+        
+            <select id="client_edi"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Cliente">
+                
+           </select>
+         
+            <select id="cabin_edi"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Cabaña">
+                
+            </select>
+            </div>
+         
+           <!-- <div class="mb-3">
+            <button class="btn btn-primary btn-sm" onclick="registrar();">Guardar</button>
+            <button class="btn btn-dark btn-sm" onclick="estadoInicial();">Cancelar</button>
+           </div>  -->               
+        </div>
+        <button onclick="actualizar();" class="btn btn-primary btn-sm">Guardar</button>
+        <button onclick="estadoInicial();" class="btn btn-dark btn-sm" >Cancelar</button>
+    </div>
+</body>
+
+</html>
